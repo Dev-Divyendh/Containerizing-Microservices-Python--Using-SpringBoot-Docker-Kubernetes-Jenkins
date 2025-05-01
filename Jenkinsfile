@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'devdivyendh10/extra-student-survey'
-        DOCKER_CREDENTIALS_ID = 'dockerhub-creds'  // Replace with your Jenkins Docker Hub credentials ID
+        DOCKER_CREDENTIALS_ID = 'dockerhub-creds'  
     }
 
     stages {
@@ -40,4 +40,5 @@ pipeline {
                 }
             }
         }
+    }  
 }
