@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: extra-student-survey
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: extra-student-survey
+  template:
+    metadata:
+      labels:
+        app: extra-student-survey
+    spec:
+      containers:
+      - name: survey-app
+        image: devdivyendh10/extra-student-survey
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DB_USER
+          value: "admin"
+        - name: DB_PASSWORD
+          value: "veD10%2503_01"  # URL-encoded password (% -> %25)
+        - name: DB_HOST
+          value: "survey-db.c76o4i0qm7ma.us-east-2.rds.amazonaws.com"
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_NAME
+          value: "surveydb"
